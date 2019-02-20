@@ -18,8 +18,12 @@ def parse_serial_message():
         # read a simple line from serial port
         # x = ser.read()  # read one byte
         # s = ser.read(10)  # read up to ten bytes (timeout)
+
+
         line = ser.readline() # read a '\n' terminated line
         print(line)
+        """for c in line:
+            print(hex(c))"""
         # print(line[:92])
 
         # parse each message
@@ -58,45 +62,45 @@ def parse_serial_message():
         print(vertical_velocity)
         print("vertical_velocity: ",int.from_bytes(vertical_velocity, byteorder='big', signed=True))
 
-        status1 = line[40:42]  # active satellites
-        print(status1)
-        print("status1: ",int.from_bytes(status1, byteorder='big', signed=True))
+        long_acc = line[38:40]  # active satellites
+        print(long_acc)
+        print("long_acc: ",int.from_bytes(long_acc, byteorder='big', signed=True))
 
-        status2 = line[42:44]  # active satellites
-        print(status2)
-        print("status2: ",int.from_bytes(status2, byteorder='big'))
+        lat_acc = line[40:42]  # active satellites
+        print(lat_acc)
+        print("lat_acc: ",int.from_bytes(lat_acc, byteorder='big'))
 
-        trigger_distance = line[44:48]  # active satellites
-        print(trigger_distance)
-        print("Trigger_Distance: ",int.from_bytes(trigger_distance, byteorder='big'))
+        glonass_sats = line[42:43]  # active satellites
+        print(glonass_sats)
+        print("glonass_sats: ",int.from_bytes(glonass_sats, byteorder='big'))
 
-        longitudinal_acceleration_g	 = line[48:50]
-        print(longitudinal_acceleration_g)
-        print("longitudinal_acceleration_g: ",int.from_bytes(longitudinal_acceleration_g, byteorder='big'))
+        gps_sats = line[43:44]
+        print(gps_sats)
+        print("gps_sats: ",int.from_bytes(gps_sats, byteorder='big'))
 
-        lateral_acceleration_g = line[50:52]
-        print(lateral_acceleration_g)
-        print("lateral_acceleration_g: ",int.from_bytes(lateral_acceleration_g, byteorder='big'))
+        serial_number = line[44:46]
+        print(serial_number)
+        print("serial_number: ",int.from_bytes(serial_number, byteorder='big'))
 
-        distance = line[52:56]
-        print(distance)
-        print("distance: ",struct.unpack('f', distance))
+        kalman_filter_status = line[46:48]
+        print(kalman_filter_status)
+        print("kalman_filter_status: ", int.from_bytes(kalman_filter_status, byteorder='big'))
 
-        trigger_time = line[56:58]
-        print(trigger_time)
-        print("trigger_time: ", int.from_bytes(trigger_time, byteorder='big'))
+        solution_type = line[48:50]
+        print(solution_type)
+        print("solution_type: ", int.from_bytes(solution_type, byteorder='big'))
 
-        trigger_speed_knots = line[58:60]
-        print(trigger_speed_knots)
-        print("trigger_speed_knots: ", int.from_bytes(trigger_speed_knots, byteorder='big'))
+        velocity_quality = line[50:54]
+        print(velocity_quality)
+        print("velocity_quality: ", int.from_bytes(velocity_quality, byteorder='big'))
 
-        Speed_Quality_kmh = line[60:62]
-        print(Speed_Quality_kmh)
-        print("Speed_Quality_kmh: ", int.from_bytes(Speed_Quality_kmh, byteorder='big'))
+        ram_address = line[54:57]
+        print(ram_address)
+        print("ram_address: ", int.from_bytes(ram_address, byteorder='big'))
 
-        # vbox_serial = line[44:46] # active satellites
-        # print(vbox_serial)
-        # print("vbox_serial: ",int.from_bytes(vbox_serial, byteorder='big'))
+        event_time1 = line[57:61]
+        print(event_time1)
+        print("event_time1: ", int.from_bytes(event_time1, byteorder='big'))
 
 
 
