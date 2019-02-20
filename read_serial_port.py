@@ -40,11 +40,11 @@ def parse_serial_message():
 
         latitude = line[21:25]  # active satellites
         print(latitude)
-        print("latitude: ",struct.unpack('f', latitude))
+        print("latitude: ",int.from_bytes(latitude, byteorder='big', signed=True))
 
         longitude = line[25:29]  # active satellites
         print(longitude)
-        print("longitude: ",struct.unpack('f', longitude))
+        print("longitude: ",int.from_bytes(longitude, byteorder='big', signed=True))
 
         velocity = line[29:31]  # active satellites
         print(velocity)
@@ -68,7 +68,7 @@ def parse_serial_message():
 
         lat_acc = line[40:42]  # active satellites
         print(lat_acc)
-        print("lat_acc: ",int.from_bytes(lat_acc, byteorder='big'))
+        print("lat_acc: ",int.from_bytes(lat_acc, byteorder='big', signed=True))
 
         glonass_sats = line[42:43]  # active satellites
         print(glonass_sats)
@@ -100,7 +100,7 @@ def parse_serial_message():
 
         event_time1 = line[57:61]
         print(event_time1)
-        print("event_time1: ", int.from_bytes(event_time1, byteorder='big'))
+        print("event_time1: ", struct.unpack('f', event_time1))
 
 
 
