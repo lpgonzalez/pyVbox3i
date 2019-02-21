@@ -6,6 +6,7 @@ import binascii
 import codecs
 import struct
 
+BAUDRATE = 500000 #(int) Baud rate such as 9600 or 115200 etc.
 
 def parse_serial_message():
     # write
@@ -14,7 +15,7 @@ def parse_serial_message():
     # ser.write(b'hello')  # write a string
     ser.close()  # close port
     #read
-    with serial.Serial('COM3', 19200, timeout=1) as ser:
+    with serial.Serial('COM3', BAUDRATE, timeout=1) as ser:
         # read a simple line from serial port
         # x = ser.read()  # read one byte
         # s = ser.read(10)  # read up to ten bytes (timeout)
