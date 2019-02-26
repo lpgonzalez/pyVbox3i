@@ -20,90 +20,92 @@ def parse_serial_message():
         # x = ser.read()  # read one byte
         # s = ser.read(10)  # read up to ten bytes (timeout)
 
-
-        line = ser.readline() # read a '\n' terminated line
-        print(line)
+        line = ser.readline()  # read a '\n' terminated line
+        # print(line)
         """for c in line:
             print(hex(c))"""
         # print(line[:92])
 
         # parse each message
         sats = line[17:18]  # active satellites
-        print(sats)
+        # print(sats)
         sats = int.from_bytes(sats, byteorder='big')
         print("Sats: " + str(sats))
         # n = int(word,2)
         # binascii.unhexlify('%x' % n)
 
         time = line[18:21]  # active satellites
-        print(time)
-        print("time: ",int.from_bytes(time, byteorder='big'))
+        # print(time)
+        print("time: ", int.from_bytes(time, byteorder='big'))
 
         latitude = line[21:25]  # active satellites
-        print(latitude)
-        print("latitude: ",int.from_bytes(latitude, byteorder='big', signed=True))
+        # print(latitude)
+        print("latitude: ", int.from_bytes(latitude, byteorder='big', signed=True))
 
         longitude = line[25:29]  # active satellites
-        print(longitude)
-        print("longitude: ",int.from_bytes(longitude, byteorder='big', signed=True))
+        # print(longitude)
+        print("longitude: ", int.from_bytes(longitude, byteorder='big', signed=True))
 
         velocity = line[29:31]  # active satellites
-        print(velocity)
-        print("velocity: ",int.from_bytes(velocity, byteorder='big'))
+        # print(velocity)
+        print("velocity: ", int.from_bytes(velocity, byteorder='big'))
 
         heading = line[31:33]  # active satellites
-        print(heading)
-        print("heading: ",int.from_bytes(heading, byteorder='big'))
+        # print(heading)
+        print("heading: ", int.from_bytes(heading, byteorder='big'))
 
         height = line[33:36]  # active satellites
-        print(height)
-        print("height: ",int.from_bytes(height, byteorder='big'))
+        # print(height)
+        print("height: ", int.from_bytes(height, byteorder='big'))
 
         vertical_velocity = line[36:38]  # active satellites
-        print(vertical_velocity)
-        print("vertical_velocity: ",int.from_bytes(vertical_velocity, byteorder='big', signed=True))
+        # print(vertical_velocity)
+        print("vertical_velocity: ", int.from_bytes(vertical_velocity, byteorder='big', signed=True))
 
         long_acc = line[38:40]  # active satellites
-        print(long_acc)
-        print("long_acc: ",int.from_bytes(long_acc, byteorder='big', signed=True))
+        # print(long_acc)
+        print("long_acc: ", int.from_bytes(long_acc, byteorder='big', signed=True))
 
         lat_acc = line[40:42]  # active satellites
-        print(lat_acc)
-        print("lat_acc: ",int.from_bytes(lat_acc, byteorder='big', signed=True))
+        # print(lat_acc)
+        print("lat_acc: ", int.from_bytes(lat_acc, byteorder='big', signed=True))
 
         glonass_sats = line[42:43]  # active satellites
-        print(glonass_sats)
-        print("glonass_sats: ",int.from_bytes(glonass_sats, byteorder='big'))
+        # print(glonass_sats)
+        print("glonass_sats: ", int.from_bytes(glonass_sats, byteorder='big'))
 
         gps_sats = line[43:44]
-        print(gps_sats)
-        print("gps_sats: ",int.from_bytes(gps_sats, byteorder='big'))
+        # print(gps_sats)
+        print("gps_sats: ", int.from_bytes(gps_sats, byteorder='big'))
 
         serial_number = line[44:46]
-        print(serial_number)
-        print("serial_number: ",int.from_bytes(serial_number, byteorder='big'))
+        # print(serial_number)
+        print("serial_number: ", int.from_bytes(serial_number, byteorder='big'))
 
         kalman_filter_status = line[46:48]
-        print(kalman_filter_status)
+        # print(kalman_filter_status)
         print("kalman_filter_status: ", int.from_bytes(kalman_filter_status, byteorder='big'))
 
         solution_type = line[48:50]
-        print(solution_type)
+        # print(solution_type)
         print("solution_type: ", int.from_bytes(solution_type, byteorder='big'))
 
         velocity_quality = line[50:54]
-        print(velocity_quality)
+        # print(velocity_quality)
         print("velocity_quality: ", int.from_bytes(velocity_quality, byteorder='big'))
 
         ram_address = line[54:57]
-        print(ram_address)
+        # print(ram_address)
         print("ram_address: ", int.from_bytes(ram_address, byteorder='big'))
 
-        event_time1 = line[57:61]
-        print(event_time1)
-        print("event_time1: ", struct.unpack('f', event_time1))
+        try:
+            event_time1 = line[57:61]
+            # print(event_time1)
+            print("event_time1: ", struct.unpack('f', event_time1))
+        except (struct.error, OverflowError):
+            print("Invalid value for event_time1: message discarded")
 
-
+        print("--------------------------------")
 
 def get_port_list():
     com_ports = list(serial.tools.list_ports.comports())  # get list of all devices connected through serial port
