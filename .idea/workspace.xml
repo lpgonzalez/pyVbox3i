@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e0157ac-329a-4682-a3ce-8aaaa4728c33" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Vbox3iCanMessage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Vbox3iCanMessage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +15,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Vbox3iCanMessage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
+            <state relative-caret-position="3706">
               <caret line="218" column="19" selection-start-line="218" selection-start-column="11" selection-end-line="218" selection-end-column="19" />
             </state>
           </provider>
@@ -70,7 +70,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -82,9 +81,11 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -113,11 +114,12 @@
       <updated>1550577087278</updated>
       <workItem from="1550577090555" duration="9499000" />
       <workItem from="1551172736508" duration="6992000" />
+      <workItem from="1554824867924" duration="705000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16491000" />
+    <option name="totallyTimeSpent" value="17196000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -131,7 +133,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1839" height="1191" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25238898" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25547445" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -162,7 +164,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Vbox3iCanMessage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
+        <state relative-caret-position="3706">
           <caret line="218" column="19" selection-start-line="218" selection-start-column="11" selection-end-line="218" selection-end-column="19" />
         </state>
       </provider>
